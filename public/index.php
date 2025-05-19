@@ -14,6 +14,7 @@
 
     require_once "../RestAPI/PortalRestController.php";
     require_once "../middlewares/LoginRequiredMiddleware.php";
+    require_once "../controllers/SetWelcomeController.php";
 
     $url = $_SERVER['REQUEST_URI'];
 
@@ -40,6 +41,8 @@
 
     $router = new Router($twig, $pdo);
     $router->add("/", MainController::class);
+
+    $router->add("/set-welcome/", SetWelcomeController::class);
 
     $router->add("/portal-character/(?P<id>\d+)", ObjectController::class); 
     $router->add("/search", SearchController::class);
