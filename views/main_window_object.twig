@@ -3,14 +3,6 @@
 
 {% block content %}
 
-Сообщение из сессии: {{my_session_message}}
-<br>
-Последние сообщения:<br>
-{% for m in messages %}
-    {{m}}<br>
-{% endfor %}
-<hr>
-
 <h1>{{ title_objects.title }}</h1>
 <div>{{ title_objects.description }}</div> 
 <div class="container">

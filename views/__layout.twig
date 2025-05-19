@@ -45,11 +45,39 @@
             </div>
         </nav>
     </div>
-    <div class="container">
-        {% block content %}
-            пустота
-        {% endblock %}
+    <div class="flex-container">
+        <div class="container">
+            {% block content %}
+                пустота
+            {% endblock %}
+        </div>
+        <div class="container-sec">
+            Последние страницы, которые вы посетили:<br>
+            {% for m in history %}
+                <div class="session-history">
+                    {{m}}<br>
+                </div>
+            {% endfor %}
+            <hr>
+        </div>
     </div>
     
+    <style>
+        .flex-container {
+            display: flex;  
+            gap: 20px;    
+            align-items: flex-start; 
+        }
+        .container-sec {
+            width: 20%;
+            padding: 10px;
+        }
+        .session-history {
+            border-radius: 5px;
+            background: linear-gradient(135deg, #e039e2 0%, #1ccff7 100%);
+            margin-top: 4px;
+            margin-bottom: 4px;
+        }
+    </style>
 </body>
 </html>

@@ -10,6 +10,12 @@ class BasePortalTwigController extends TwigBaseController {
 
         $context['types'] = $types;
 
+        if (!isset($_SESSION['history'])) {
+            $_SESSION['history'] = [];
+        }
+        array_push($_SESSION['history'], $_SERVER['REQUEST_URI']);
+        $context["history"] = isset($_SESSION['history']) ? $_SESSION['history'] : "";
+
         return $context;
     }
 }
