@@ -32,7 +32,7 @@ class ObjectController extends BasePortalTwigController {
         $query->execute(); 
         
         $context['title_objects'] = $query->fetch();
-        $context["my_session_message"] = $_SESSION['welcome_message'];
+        $context["messages"] = isset($_SESSION['messages']) ? $_SESSION['messages'] : "";
 
         return $context;
     }
